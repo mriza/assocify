@@ -12,7 +12,11 @@
 
 ## Installation
 
-You can download the pre-compiled binary from the [Releases](https://github.com/mriza/assocify/releases) page.
+The easiest way to install Assocify is by running our automated installer script. It will download the latest release, set up the binary, download an icon, and add Assocify to your Start Menu automatically:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/mriza/assocify/master/install.sh | bash
+```
 
 Alternatively, you can build from source:
 
