@@ -32,12 +32,23 @@ jobs:
       - name: Compress binary
         run: tar -czvf assocify-linux-x86_64.tar.gz -C target/release assocify
 
+      - name: Set Release Tag
+        id: vars
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+            echo "name=Release ${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          else
+            echo "tag=latest" >> $GITHUB_OUTPUT
+            echo "name=Latest Build" >> $GITHUB_OUTPUT
+          fi
+
       - name: Create or update Release
         uses: softprops/action-gh-release@v2
         with:
           files: assocify-linux-x86_64.tar.gz
-          tag_name: latest
-          name: "Latest Release"
-          body: "Automatic build from latest commit."
+          tag_name: ${{ steps.vars.outputs.tag }}
+          name: ${{ steps.vars.outputs.name }}
+          body: "Automated release build."
           draft: false
           prerelease: false
