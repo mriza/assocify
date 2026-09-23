@@ -24,11 +24,9 @@ echo "⚙️  Installing binary to $BIN_DIR..."
 cp "$TEMP_DIR/assocify" "$BIN_DIR/assocify"
 chmod +x "$BIN_DIR/assocify"
 
-# 3. Download an open-source icon
-# We're downloading an elegant "sliders/settings" SVG icon from the open-source FontAwesome repository.
-ICON_URL="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/sliders.svg"
-echo "🖼️  Downloading icon..."
-curl -sSL "$ICON_URL" -o "$ICON_DIR/assocify.svg"
+# 3. Install the icon from the archive
+echo "🖼️  Installing icon..."
+cp "$TEMP_DIR/assocify.svg" "$ICON_DIR/assocify.svg"
 
 # 4. Create and install the .desktop file
 echo "🖥️  Creating application shortcut..."

@@ -30,7 +30,9 @@ jobs:
         run: cargo build --release
 
       - name: Compress binary
-        run: tar -czvf assocify-linux-x86_64.tar.gz -C target/release assocify
+        run: |
+          cp assets/assocify.svg target/release/
+          tar -czvf assocify-linux-x86_64.tar.gz -C target/release assocify assocify.svg
 
       - name: Set Release Tag
         id: vars
