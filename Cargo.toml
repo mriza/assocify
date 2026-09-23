@@ -1,0 +1,14 @@
+[package]
+name = "assocify"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eframe = "0.27"
+egui_extras = "0.27.0"
+env_logger = "0.11.11"
+itertools = "0.13"
+log = "0.4.22"
+rust-ini = "0.21.1"
+walkdir = "2.5.0"
+xdg = "2.5.2"
