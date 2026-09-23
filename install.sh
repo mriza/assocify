@@ -21,15 +21,18 @@ echo "📦 Extracting..."
 tar -xzf "$TEMP_DIR/assocify.tar.gz" -C "$TEMP_DIR"
 
 echo "⚙️  Installing binary to $BIN_DIR..."
+rm -f "$BIN_DIR/assocify"
 cp "$TEMP_DIR/assocify" "$BIN_DIR/assocify"
 chmod +x "$BIN_DIR/assocify"
 
 # 3. Install the icon from the archive
 echo "🖼️  Installing icon..."
+rm -f "$ICON_DIR/assocify.svg"
 cp "$TEMP_DIR/assocify.svg" "$ICON_DIR/assocify.svg"
 
 # 4. Create and install the .desktop file
 echo "🖥️  Creating application shortcut..."
+rm -f "$APP_DIR/assocify.desktop"
 cat <<EOF > "$APP_DIR/assocify.desktop"
 [Desktop Entry]
 Name=Assocify
